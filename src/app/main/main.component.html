@@ -1,0 +1,29 @@
+<input
+  type="checkbox"
+  [(ngModel)]="masterSelected"
+  name="list_name"
+  value="m1"
+  (change)="checkUncheckAll()"
+/>
+<strong>Select/ Unselect All</strong>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let item of itemlist">
+    <input
+      type="checkbox"
+      [(ngModel)]="item.isSelected"
+      name="list_name"
+      value="{{ item.id }}"
+      (change)="checkItem()"
+    />
+    {{ item.value }}
+  </li>
+</ul>
+
+<div>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of checkedlist">
+      {{ item.value }}
+    </li>
+  </ul>
+</div>
